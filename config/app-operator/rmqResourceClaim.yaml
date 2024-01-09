@@ -1,11 +1,20 @@
 apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+kind: ResourceClaimPolicy
+metadata:
+  name: where-for-dinner-rabbitmqcluster-cross-namespace
+  namespace: service-instances
+spec:
+  consumingNamespaces:
+  - '*'
+  subject:
+    group: rabbitmq.com
+    kind: RabbitmqCluster
+---
+apiVersion: services.apps.tanzu.vmware.com/v1alpha1
 kind: ClassClaim
 metadata:
   name: msgbroker-where-for-dinner
-  namespace: workloads
+  namespace: ns-production
 spec:
   classRef:
-    name: msgbroker-crossplane-where-for-dinner
-  parameters:
-    replicas: 1
-    serviceNamespace: service-instances
+    name: rabbitmq-where-for-dinner
