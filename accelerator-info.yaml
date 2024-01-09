@@ -1,5 +1,5 @@
-id: 1c886830-300d-42b6-a0e5-f2bc55c0ff4b
-timestamp: 2023-11-21T16:02:58.382Z
+id: 6816a1d0-59ef-4b2d-a09f-27c2ffbc912a
+timestamp: 2024-01-08T14:57:52.849Z
 source: TAP-GUI
 username: viktoriousss
 accelerator:
@@ -8,10 +8,9 @@ fragments:
   - name: build-wrapper-maven
   - name: tap-workload
 options:
-  bsGitBranch: main
   projectName: where-for-dinner
-  workloadNamespace: ns-production
-  serviceNamespace: ns-production
+  workloadNamespace: workloads
+  serviceNamespace: service-instances
   workloadType: web
   gatewayType: ossscg
   msgBrokerType: rabbitmq
@@ -20,10 +19,9 @@ options:
   dbType: h2
   cacheType: inmemCache
   enableSecurity: false
-  appWorkloadURL: http://where-for-dinner.<UPDATE ME>
+  appWorkloadURL: http://where-for-dinner.tap.viktoriouslab.nl
   ployglotWorkloads: false
   nativeBuild: false
   includeBuildToolWrapper: true
   dynamicMsgBrokerClass: msgbroker-crossplane-where-for-dinner
   numRabbitMQClusterNodes: 1
-  bsGitRepository: github.com?owner=viktoriousss&repo=where-for-dinner

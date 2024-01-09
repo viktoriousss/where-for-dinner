@@ -3,10 +3,9 @@
 ## Options
 ```json
 {
-  "bsGitBranch" : "main",
   "projectName" : "where-for-dinner",
-  "workloadNamespace" : "ns-production",
-  "serviceNamespace" : "ns-production",
+  "workloadNamespace" : "workloads",
+  "serviceNamespace" : "service-instances",
   "workloadType" : "web",
   "gatewayType" : "ossscg",
   "msgBrokerType" : "rabbitmq",
@@ -15,13 +14,12 @@
   "dbType" : "h2",
   "cacheType" : "inmemCache",
   "enableSecurity" : false,
-  "appWorkloadURL" : "http://where-for-dinner.<UPDATE ME>",
+  "appWorkloadURL" : "http://where-for-dinner.tap.viktoriouslab.nl",
   "ployglotWorkloads" : false,
   "nativeBuild" : false,
   "includeBuildToolWrapper" : true,
   "dynamicMsgBrokerClass" : "msgbroker-crossplane-where-for-dinner",
-  "numRabbitMQClusterNodes" : 1,
-  "bsGitRepository" : "github.com?owner=viktoriousss&repo=where-for-dinner"
+  "numRabbitMQClusterNodes" : 1
 }
 ```
 ## Log
@@ -605,21 +603,13 @@
 ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/CrawlerSearcher.java didn't match [**/templates/workloads.yaml] -> excluded
 ┃ ┃ ┃ ┃ ┃ ┃ ┗ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/LocalRandomSearcher.java didn't match [**/templates/workloads.yaml] -> excluded
 ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[4].delegate.transformations[1] (YTT)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Wrote values file with json content:   {"dynamicMsgBrokerClass":"msgbroker-crossplane-where-for-dinner","bsGitBranch":"main","artifactVersion":"0.0.1-beta","bsGitRepository":"github.com?owner=viktoriousss&repo=where-for-dinner","dynamicMsgBroker":true,"dbType":"h2","empty":"","nativeBuild":false,"enableSecurity":false,"gatewayType":"ossscg","includeBuildToolWrapper":true,"msgbrokerName":"msgbroker-where-for-dinner","numRabbitMQClusterNodes":1,"secureProfile":"secure","appWorkloadURL":"http://where-for-dinner.<UPDATE ME>","artifactId":"where-for-dinner","serviceNamespace":"ns-production","projectName":"where-for-dinner","workloadNamespace":"ns-production","msgBrokerType":"rabbitmq","cacheType":"inmemCache","workloadType":"web","ployglotWorkloads":false}
-┃ ┃ ┃ ┃ ┃ ┃ ┗  Info Shelling out to YTT with args: [ytt, -f, /tmp/ytt-input17531572599839388497, --data-values-file, /tmp/accelerator-options17460513047655657425.json, --output-files, /tmp/ytt-output16388667461635794274]
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Wrote values file with json content:   {"dynamicMsgBrokerClass":"msgbroker-crossplane-where-for-dinner","artifactVersion":"0.0.1-beta","dynamicMsgBroker":true,"dbType":"h2","empty":"","nativeBuild":false,"enableSecurity":false,"gatewayType":"ossscg","includeBuildToolWrapper":true,"msgbrokerName":"msgbroker-where-for-dinner","numRabbitMQClusterNodes":1,"secureProfile":"secure","appWorkloadURL":"http://where-for-dinner.tap.viktoriouslab.nl","artifactId":"where-for-dinner","serviceNamespace":"service-instances","projectName":"where-for-dinner","workloadNamespace":"workloads","msgBrokerType":"rabbitmq","cacheType":"inmemCache","workloadType":"web","ployglotWorkloads":false}
+┃ ┃ ┃ ┃ ┃ ┃ ┗  Info Shelling out to YTT with args: [ytt, -f, /tmp/ytt-input16726722228291340190, --data-values-file, /tmp/accelerator-options16375058220971275018.json, --output-files, /tmp/ytt-output12634675696439924194]
 ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[4].delegate.transformations[2] (RewritePath)
 ┃ ┃ ┃ ┃ ┃ ┃ ┗ Debug Path 'templates/workloads.yaml' matched 'templates/workloads.yaml' with groups {g0=templates/workloads.yaml} and was rewritten to 'config/developer/workloads.yaml'
 ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[4].delegate.transformations[3] (InvokeFragment)
 ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[4].delegate.transformations[3].validated (Combo)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#bsGitRepository != null) evaluated to true
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃  Info Combo running as Let
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ engine.transformations[0].validated.delegate.in.transformations[0].sources[4].delegate.transformations[3].validated.delegate (Let)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Adding symbol repoUrl with value 'https://github.com?owner=viktoriousss&repo=where-for-dinner'
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[4].delegate.transformations[3].validated.delegate.in (Chain)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃  Info Running Chain(OpenRewriteRecipe, ReplaceText)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ╺ engine.transformations[0].validated.delegate.in.transformations[0].sources[4].delegate.transformations[3].validated.delegate.in.transformations[0] (OpenRewriteRecipe)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[4].delegate.transformations[3].validated.delegate.in.transformations[1] (ReplaceText)
-┃ ┃ ┃ ┃ ┃ ┗ ┗ ┗ ┗ ┗  Info Will replace regex '(?<beforeBranch>[\s\S]+)(?<branch>branch: [\S]+)(?<rest>[\S\s]*)' with '${beforeBranch}branc...(truncated)'
+┃ ┃ ┃ ┃ ┃ ┗ ┗ ┗  Info Condition (#bsGitRepository != null) evaluated to false
 ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[5] (Combo)
 ┃ ┃ ┃ ┃ ┃ ┃  Info Condition (#msgBrokerType == 'rabbitmq' && !#dynamicMsgBroker) evaluated to false
 ┃ ┃ ┃ ┃ ┃ ┗ null ()
@@ -1010,8 +1000,8 @@
 ┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/CrawlerSearcher.java didn't match [**/rmqResourceClaim.yaml] -> excluded
 ┃ ┃ ┃ ┃ ┃ ┃ ┗ Debug where-for-dinner-search-proc/src/main/java/com/java/example/tanzu/wherefordinner/searcher/impl/LocalRandomSearcher.java didn't match [**/rmqResourceClaim.yaml] -> excluded
 ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[9].delegate.transformations[1] (YTT)
-┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Wrote values file with json content:   {"dynamicMsgBrokerClass":"msgbroker-crossplane-where-for-dinner","bsGitBranch":"main","artifactVersion":"0.0.1-beta","bsGitRepository":"github.com?owner=viktoriousss&repo=where-for-dinner","dynamicMsgBroker":true,"dbType":"h2","empty":"","nativeBuild":false,"enableSecurity":false,"gatewayType":"ossscg","includeBuildToolWrapper":true,"msgbrokerName":"msgbroker-where-for-dinner","numRabbitMQClusterNodes":1,"secureProfile":"secure","appWorkloadURL":"http://where-for-dinner.<UPDATE ME>","artifactId":"where-for-dinner","serviceNamespace":"ns-production","projectName":"where-for-dinner","workloadNamespace":"ns-production","msgBrokerType":"rabbitmq","cacheType":"inmemCache","workloadType":"web","ployglotWorkloads":false}
-┃ ┃ ┃ ┃ ┃ ┃ ┗  Info Shelling out to YTT with args: [ytt, -f, /tmp/ytt-input7185719829642725422, --data-values-file, /tmp/accelerator-options18427846254325107142.json, --output-files, /tmp/ytt-output16806918521217277468]
+┃ ┃ ┃ ┃ ┃ ┃ ┃ Debug Wrote values file with json content:   {"dynamicMsgBrokerClass":"msgbroker-crossplane-where-for-dinner","artifactVersion":"0.0.1-beta","dynamicMsgBroker":true,"dbType":"h2","empty":"","nativeBuild":false,"enableSecurity":false,"gatewayType":"ossscg","includeBuildToolWrapper":true,"msgbrokerName":"msgbroker-where-for-dinner","numRabbitMQClusterNodes":1,"secureProfile":"secure","appWorkloadURL":"http://where-for-dinner.tap.viktoriouslab.nl","artifactId":"where-for-dinner","serviceNamespace":"service-instances","projectName":"where-for-dinner","workloadNamespace":"workloads","msgBrokerType":"rabbitmq","cacheType":"inmemCache","workloadType":"web","ployglotWorkloads":false}
+┃ ┃ ┃ ┃ ┃ ┃ ┗  Info Shelling out to YTT with args: [ytt, -f, /tmp/ytt-input8917323621369884121, --data-values-file, /tmp/accelerator-options11548025061660193251.json, --output-files, /tmp/ytt-output14788814571682943801]
 ┃ ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[9].delegate.transformations[2] (RewritePath)
 ┃ ┃ ┃ ┃ ┃ ┗ ┗ Debug Path 'templates/rmqResourceClaim.yaml' matched 'templates/rmqResourceClaim.yaml' with groups {g0=templates/rmqResourceClaim.yaml} and was rewritten to 'config/app-operator/rmqResourceClaim.yaml'
 ┃ ┃ ┃ ┃ ┃ ┏ engine.transformations[0].validated.delegate.in.transformations[0].sources[10] (Combo)
